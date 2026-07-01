@@ -1,24 +1,15 @@
-import ProductList from "./components/ProductList";
-import Basket from "./components/Basket";
-import Offers from "./components/offers";
-import Header from "./components/Header";
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <Routes>
+      <Route path="/" element={<Home />} />
 
-      <Header />
-      <Offers />
-
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-        <ProductList />
-
-        <Basket />
-
-      </div>
-
-    </div>
+      <Route path="/cart" element={<Cart />} />
+    </Routes>
   );
 }
 

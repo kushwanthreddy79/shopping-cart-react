@@ -10,20 +10,25 @@ const ProductCard = ({ product }: Props) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 flex flex-col items-center">
-  <h3 className="text-xl font-bold">
-    {product.name} 
-  </h3>
+    <div className="bg-white rounded-xl shadow-md p-5 hover:shadow-xl transition duration-300 flex flex-col items-center">
 
-  <p className="text-blue-600 text-lg mb-4">
-   ₹{product.price.toFixed(2)}
-  </p>
+    <h3 className="text-xl font-bold">
+         {product.name}
+    </h3>
+    <img
+         src={product.image}
+         alt={product.name}
+         className="w-36 h-36 object-contain mb-4"
+         />
+    <p className="text-gray-600 mt-2">
+        ₹{product.price.toFixed(2)}
+    </p>
 
   <button
     onClick={() => dispatch(addItem(product))}
-    className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg"
+    className="mt-5 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
   >
-    Add to Basket
+    Add to Cart
   </button>
 
 </div>
