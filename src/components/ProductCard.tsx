@@ -15,6 +15,9 @@ const ProductCard = ({ product }: Props) => {
     <h3 className="text-xl font-bold">
          {product.name}
     </h3>
+    <p className="text-sm text-gray-500 mt-1">
+  {product.quantityLabel}
+</p>
     <img
          src={product.image}
          alt={product.name}

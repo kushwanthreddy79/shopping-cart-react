@@ -23,7 +23,7 @@ const Offers = () => {
     <div className="bg-yellow-50 rounded-xl shadow-md p-6 mb-8">
 
       <h2 className="text-2xl font-bold flex items-center gap-2 mb-6">
-        <Gift size={26} />
+        <Gift size={24} />
         Current Offers
       </h2>
 

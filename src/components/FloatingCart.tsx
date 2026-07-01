@@ -9,7 +9,7 @@ const FloatingCart = () => {
     (state: RootState) => state.basket.items
   );
 
-  // Hide button if cart is empty
+  //empty cart
   if (items.length === 0) return null;
 
   const totalItems = items.reduce(

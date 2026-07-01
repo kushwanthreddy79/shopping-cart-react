@@ -7,7 +7,7 @@ interface BasketItem {
   quantity: number;
 }
 
-// Product IDs (safer than checking names everywhere)
+// Product IDs
 const PRODUCT_IDS = {
   BREAD: 1,
   MILK: 2,
@@ -16,10 +16,9 @@ const PRODUCT_IDS = {
   BUTTER: 5,
 } as const;
 
-// Round currency values to 2 decimal places
 const round = (value: number): number => Number(value.toFixed(2));
 
-// Reusable helper for adding offers
+
 const applyOffer = (
   offers: { title: string; saving: number }[],
   title: string,
@@ -42,9 +41,7 @@ export const calculateBill = (items: BasketItem[]): Bill => {
   let subtotal = 0;
   let totalSavings = 0;
 
-  // -----------------------------
-  // Create item bills
-  // -----------------------------
+  // Creating item bills
   items.forEach((item) => {
     const itemTotal = item.price * item.quantity;
 
@@ -61,10 +58,9 @@ export const calculateBill = (items: BasketItem[]): Bill => {
     });
   });
 
-  // =============================
-  // Cheese Offer (Buy One Get One)
-  // =============================
 
+  // Cheese Offer (Buy One Get One)
+  
   const cheese = itemBills.find(
     (item) => item.id === PRODUCT_IDS.CHEESE
   );
@@ -85,10 +81,9 @@ export const calculateBill = (items: BasketItem[]): Bill => {
     );
   }
 
-  // ======================================
-  // Soup Offer (Bread at Half Price)
-  // ======================================
 
+  // Soup Offer (Bread at Half Price)
+ 
   const soup = itemBills.find(
     (item) => item.id === PRODUCT_IDS.SOUP
   );
@@ -118,9 +113,8 @@ export const calculateBill = (items: BasketItem[]): Bill => {
     );
   }
 
-  // ============================
+
   // Butter Offer (33% OFF)
-  // ============================
 
   const butter = itemBills.find(
     (item) => item.id === PRODUCT_IDS.BUTTER
@@ -142,9 +136,7 @@ export const calculateBill = (items: BasketItem[]): Bill => {
     );
   }
 
-  // -----------------------------
-  // Final Bill
-  // -----------------------------
+  //Bill
 
   return {
     subtotal: round(subtotal),

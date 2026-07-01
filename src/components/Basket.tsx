@@ -5,10 +5,10 @@ import BillSummary from "./BillSummary";
 import { calculateBill } from "../utils/offers";
 
 const Basket = () => {
-  // Get basket items from Redux
+  
   const items = useSelector((state: RootState) => state.basket.items);
 
-  // Calculate complete bill
+  //  bill
   const bill = calculateBill(items);
 
   return (
