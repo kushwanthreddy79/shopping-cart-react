@@ -29,14 +29,14 @@ describe("calculateBill", () => {
       {
         id: 1,
         name: "Bread",
-        price: 1.10,
+        price: 30,
         quantity: 2,
       },
     ]);
 
-    expect(result.subtotal).toBe(2.20);
+    expect(result.subtotal).toBe(60);
     expect(result.savings).toBe(0);
-    expect(result.total).toBe(2.20);
+    expect(result.total).toBe(60);
 
   });
 
@@ -49,16 +49,16 @@ it("should apply Buy One Get One Free for Cheese", () => {
     {
       id: 3,
       name: "Cheese",
-      price: 0.90,
+      price: 30,
       quantity: 2,
     },
   ]);
 
-  expect(result.subtotal).toBe(1.80);
+  expect(result.subtotal).toBe(60);
 
-  expect(result.savings).toBe(0.90);
+  expect(result.savings).toBe(30 );
 
-  expect(result.total).toBe(0.90);
+  expect(result.total).toBe(30);
 
 });
 
@@ -68,20 +68,20 @@ it("should apply Soup + Bread offer", () => {
     {
       id: 4,
       name: "Soup",
-      price: 0.60,
+      price: 80,
       quantity: 1,
     },
     {
       id: 1,
       name: "Bread",
-      price: 1.10,
+      price: 30,
       quantity: 1,
     },
   ]);
 
-  expect(result.subtotal).toBeCloseTo(1.70, 2);
-  expect(result.savings).toBeCloseTo(0.55, 2);
-  expect(result.total).toBeCloseTo(1.15, 2);
+  expect(result.subtotal).toBeCloseTo(110,120);
+  expect(result.savings).toBeCloseTo(15,20);
+  expect(result.total).toBeCloseTo(95,100);
 });
 
 //multiple offers
@@ -90,30 +90,30 @@ it("should apply multiple offers together", () => {
     {
       id: 1,
       name: "Bread",
-      price: 1.10,
+      price: 30,
       quantity: 2,
     },
     {
       id: 4,
       name: "Soup",
-      price: 0.60,
+      price: 80,
       quantity: 2,
     },
     {
       id: 3,
       name: "Cheese",
-      price: 0.90,
+      price: 30,
       quantity: 2,
     },
     {
       id: 5,
       name: "Butter",
-      price: 1.20,
+      price: 60,
       quantity: 1,
     },
   ]);
 
-  expect(result.subtotal).toBeCloseTo(6.40);
-  expect(result.savings).toBeCloseTo(2.40);
-  expect(result.total).toBeCloseTo(4.00);
+  expect(result.subtotal).toBeCloseTo(340);
+  expect(result.savings).toBeCloseTo(80);
+  expect(result.total).toBeCloseTo(260);
 });

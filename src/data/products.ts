@@ -37,7 +37,8 @@ export const products = [
   {
     id: 6,
     name: "Eggs",
-    price: 5,
+    price: 80,
+    quantityLabel: "1 Dozen",
     image: "/images/eggs.png",
   },
   {
